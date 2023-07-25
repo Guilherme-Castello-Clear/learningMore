@@ -1,17 +1,28 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView } from 'react-native'
+import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, FlatList } from 'react-native'
 
 class App extends Component {
+
+  constructor(props){
+    super(props)
+    this.state = {
+      feed:[
+        {id: '1', nome: 'Matheus', idade: 50, email: 'matheus@matheus.matheus'},
+        {id: '2', nome: 'Matheus', idade: 50, email: 'matheus@matheus.matheus'},
+        {id: '3', nome: 'Matheus', idade: 50, email: 'matheus@matheus.matheus'},
+        {id: '4', nome: 'Matheus', idade: 50, email: 'matheus@matheus.matheus'}
+
+      ]
+    }
+  }
 
   render(){
     return(
       <View style={styles.container}>
-        <ScrollView>
-          <View style={styles.box1}></View>
-          <View style={styles.box2}></View>
-          <View style={styles.box3}></View>
-          <View style={styles.box4}></View>
-        </ScrollView>
+        <FlatList
+          data={this.state.feed}
+          keyExtractor={(item) => item.id}
+          renderItem={ ({item}) => <NameList data={item}/>}/>
       </View>
     );
   }
@@ -19,23 +30,34 @@ class App extends Component {
 
 const styles = StyleSheet.create({
   container:{
+    flex: 1
   },
-  box1:{
-    backgroundColor: 'red',
-    height: 250,
+  txtpessoa:{
+
   },
-  box2:{
-    backgroundColor: 'green',
-    height: 250,
+  areapessoa:{
+    backgroundColor: '#222',
+    height: 200,
+    marginBottom: 15
   },
-  box3:{
-    backgroundColor: 'yellow',
-    height: 250,
-  },
-  box4:{
-    backgroundColor: 'blue',
-    height: 250,
+  txtpessoa:{
+    color: '#FFF',
+    fontSize: 20
   }
+  
 })
 
-export default App
+export default App;
+
+class NameList extends Component{
+  render(){
+    return(
+      <View style={styles.areapessoa}>
+        <Text style={styles.txtpessoa}>{this.props.data.nome}</Text>
+        <Text style={styles.txtpessoa}>{this.props.data.idade}</Text>
+        <Text style={styles.txtpessoa}>{this.props.data.email}</Text>
+
+      </View>
+    )
+  }
+}
