@@ -22,7 +22,7 @@ class App extends Component {
         <FlatList
           data={this.state.feed}
           keyExtractor={(item) => item.id}
-          renderItem={ ({item}) => <NameList data={item}/>}/>
+          renderItem={ ({item}) => <Pessoas data={item}/>}/>
       </View>
     );
   }
@@ -32,32 +32,7 @@ const styles = StyleSheet.create({
   container:{
     flex: 1
   },
-  txtpessoa:{
 
-  },
-  areapessoa:{
-    backgroundColor: '#222',
-    height: 200,
-    marginBottom: 15
-  },
-  txtpessoa:{
-    color: '#FFF',
-    fontSize: 20
-  }
-  
 })
 
 export default App;
-
-class NameList extends Component{
-  render(){
-    return(
-      <View style={styles.areapessoa}>
-        <Text style={styles.txtpessoa}>{this.props.data.nome}</Text>
-        <Text style={styles.txtpessoa}>{this.props.data.idade}</Text>
-        <Text style={styles.txtpessoa}>{this.props.data.email}</Text>
-
-      </View>
-    )
-  }
-}
