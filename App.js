@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet, Image, TouchableOpacity, ScrollView, FlatList } from 'react-native'
 
+import Pessoas from './src/Pessoas/'
+
 class App extends Component {
 
   constructor(props){

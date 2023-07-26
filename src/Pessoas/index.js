@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
 import { View, Text, StyleSheet } from 'react-native'
 
-
-import Pessoas from './src/Pessoas/'
 class Pessoas extends Component{
     render(){
       return(
